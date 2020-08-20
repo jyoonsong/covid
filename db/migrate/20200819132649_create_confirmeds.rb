@@ -7,6 +7,8 @@ class CreateConfirmeds < ActiveRecord::Migration[5.2]
       t.integer :age
 
       t.integer :dong_id, foreign_key: true
+      t.integer :gu_id, foreign_key: true
+      t.integer :si_id, foreign_key: true
 
       t.timestamps
     end
