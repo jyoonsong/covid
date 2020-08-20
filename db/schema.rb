@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_08_19_134009) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "confirmeds", force: :cascade do |t|
     t.integer "index"
     t.string "dateConfirmed"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
   end
 
   create_table "language_confirmeds", force: :cascade do |t|
-    t.integer "language_id"
-    t.integer "confirmed_id"
+    t.bigint "language_id"
+    t.bigint "confirmed_id"
     t.string "name"
     t.string "gender"
     t.string "infectionRoute"
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
   end
 
   create_table "language_dongs", force: :cascade do |t|
-    t.integer "language_id"
-    t.integer "dong_id"
+    t.bigint "language_id"
+    t.bigint "dong_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
   end
 
   create_table "language_gus", force: :cascade do |t|
-    t.integer "language_id"
-    t.integer "gu_id"
+    t.bigint "language_id"
+    t.bigint "gu_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,8 +81,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
   end
 
   create_table "language_sis", force: :cascade do |t|
-    t.integer "language_id"
-    t.integer "si_id"
+    t.bigint "language_id"
+    t.bigint "si_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -126,4 +129,12 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "language_confirmeds", "confirmeds"
+  add_foreign_key "language_confirmeds", "languages"
+  add_foreign_key "language_dongs", "dongs"
+  add_foreign_key "language_dongs", "languages"
+  add_foreign_key "language_gus", "gus"
+  add_foreign_key "language_gus", "languages"
+  add_foreign_key "language_sis", "languages"
+  add_foreign_key "language_sis", "sis"
 end

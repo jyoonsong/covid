@@ -11,7 +11,7 @@
             <th scope="col"><%= @language.routeIdentified %></th>
             <th scope="col"><%= @language.genderAge %></th>
             <th scope="col"><%= @language.confirmedName %></th>
-            <th scope="col"><%= @language.infectionRoute %></th>
+            <th scope="col"><%= @language.infectionRoute %></th> 
         </thead>
         <tbody>
             <% @si.confirmeds.sort_by(&:index).each do |c| %>

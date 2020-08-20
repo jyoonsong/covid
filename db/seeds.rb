@@ -104,7 +104,8 @@ dong = Dong.create(
     thisWeek: 15,
     lastWeek: 15,
     accumulated: 15,
-    gu_id: gu.id
+    gu_id: gu.id,
+    si_id: gu.si_id
 )
 
 dong2 = Dong.create(
@@ -113,7 +114,8 @@ dong2 = Dong.create(
     thisWeek: 15,
     lastWeek: 15,
     accumulated: 15,
-    gu_id: gu.id
+    gu_id: gu.id,
+    si_id: gu.si_id
 )
 
 dong3 = Dong.create(
@@ -122,7 +124,8 @@ dong3 = Dong.create(
     thisWeek: 30,
     lastWeek: 30,
     accumulated: 30,
-    gu_id: gu2.id
+    gu_id: gu2.id,
+    si_id: gu2.si_id
 )
 
 confirmed = Confirmed.create(
@@ -130,7 +133,9 @@ confirmed = Confirmed.create(
     dateConfirmed: "2020-08-19",
     routeIdentified: true,
     age: 28,
-    dong_id: dong.id
+    dong_id: dong.id,
+    gu_id: dong.gu_id,
+    si_id: dong.si_id
 )
 
 confirmed2 = Confirmed.create(
@@ -138,7 +143,9 @@ confirmed2 = Confirmed.create(
     dateConfirmed: "2020-08-20",
     routeIdentified: true,
     age: 28,
-    dong_id: dong3.id
+    dong_id: dong3.id,
+    gu_id: dong3.gu_id,
+    si_id: dong3.si_id
 )
 
 LanguageConfirmed.create(
