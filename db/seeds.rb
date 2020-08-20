@@ -176,7 +176,7 @@ LanguageDong.create(
 )
 
 LanguageDong.create(
-    language_id: ko.id,
+    language_id: en.id,
     dong_id: dong2.id,
     name: "Yeoksam-dong",
 )
