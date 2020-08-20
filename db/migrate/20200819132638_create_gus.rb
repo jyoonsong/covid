@@ -7,6 +7,8 @@ class CreateGus < ActiveRecord::Migration[5.2]
       t.integer :lastWeek
       t.integer :acuumulated
 
+      t.integer :si_id, foreign_key: true
+
       t.timestamps
     end
   end

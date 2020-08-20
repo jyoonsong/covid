@@ -7,19 +7,22 @@ class CreateLanguages < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :location
       t.string :date
+
       t.string :numConfirmed
       t.string :route
       t.string :prevention
+      
       t.string :inProcess
       t.string :monitored
 
       t.string :thisWeek
       t.string :accumulated
+
       t.string :numConfirmedByLocation
       t.string :today
       t.string :lastWeek
-      t.string :guide
 
+      t.string :guide
       t.string :index
       t.string :residence
       t.string :dateConfirmed

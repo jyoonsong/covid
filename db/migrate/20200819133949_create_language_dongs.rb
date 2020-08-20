@@ -4,6 +4,8 @@ class CreateLanguageDongs < ActiveRecord::Migration[5.2]
       t.belongs_to :language, foreign_key: true
       t.belongs_to :dong, foreign_key: true
 
+      t.string :name
+
       t.timestamps
     end
   end

@@ -3,8 +3,10 @@ class CreateConfirmeds < ActiveRecord::Migration[5.2]
     create_table :confirmeds do |t|
       t.integer :index
       t.string :dateConfirmed
-      t.boolean :routeIentified
+      t.boolean :routeIdentified
       t.integer :age
+
+      t.integer :dong_id, foreign_key: true
 
       t.timestamps
     end
