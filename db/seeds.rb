@@ -100,19 +100,19 @@ gu2 = Gu.create(
 
 dong = Dong.create(
     name: "모현읍",
-    today: 30,
-    thisWeek: 30,
-    lastWeek: 30,
-    accumulated: 30,
+    today: 15,
+    thisWeek: 15,
+    lastWeek: 15,
+    accumulated: 15,
     gu_id: gu.id
 )
 
 dong2 = Dong.create(
     name: "역삼동",
-    today: 30,
-    thisWeek: 30,
-    lastWeek: 30,
-    accumulated: 30,
+    today: 15,
+    thisWeek: 15,
+    lastWeek: 15,
+    accumulated: 15,
     gu_id: gu.id
 )
 
