@@ -1,0 +1,70 @@
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2"><%= @language.inProcess %></th>
+                <th colspan="2"><%= @language.monitored %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-secondary">
+                <td><%= @language.thisWeek %></td>
+                <td><%= @language.accumulated %></td>
+                <td><%= @language.thisWeek %></td>
+                <td><%= @language.accumulated %></td>
+            </tr>
+            <tr>
+                <td><%= @si.inProcessThisWeek %></td>
+                <td><%= @si.inProcessAccumulated %></td>
+                <td><%= @si.monitoredThisWeek %></td>
+                <td><%= @si.monitoredAccumulated %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive mb-5">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th><%= @language.numConfirmedByLocation %></th>
+                <th><%= @language.today %></th>
+                <th><%= @language.thisWeek %></th>
+                <th><%= @language.lastWeek %></th>
+                <th><%= @language.accumulated %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @si.gus.each do |gu| %>
+                <% language_gu = LanguageGu.find_by(language_id: @language.id, gu_id: gu.id) %>
+                <tr class="table-secondary" data-toggle="collapse" data-target=".collapse<%= gu.id %>" aria-expanded="false" aria-controls="collapse<%= gu.id %>" role="button">
+                    <th><%= language_gu.name %></th>
+                    <td><%= gu.today %></td>
+                    <td><%= gu.thisWeek %></td>
+                    <td><%= gu.lastWeek %></td>
+                    <td><%= gu.accumulated %></td>
+                </tr>
+
+                <% gu.dongs.each do |dong| %>
+                    <% language_dong = LanguageDong.find_by(language_id: @language.id, dong_id: dong.id) %>
+                    <tr class="collapse collapse<%= gu.id %>" id="collapse<%= gu.id %>-<%= dong.id %>">
+                        <th><%= language_dong.name %></th>
+                        <td><%= dong.today %></td>
+                        <td><%= dong.thisWeek %></td>
+                        <td><%= dong.lastWeek %></td>
+                        <td><%= dong.accumulated %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+            
+            <!-- Total -->
+            <tr class="table-primary">
+                <th><%= @language.accumulated %></th>
+                <td><%= @si.gus.sum(:today) %></td>
+                <td><%= @si.gus.sum(:thisWeek) %></td>
+                <td><%= @si.gus.sum(:lastWeek) %></td>
+                <td><%= @si.gus.sum(:accumulated) %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
