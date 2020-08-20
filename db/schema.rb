@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.integer "today"
     t.integer "thisWeek"
     t.integer "lastWeek"
-    t.integer "acuumulated"
+    t.integer "accumulated"
     t.integer "gu_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.integer "today"
     t.integer "thisWeek"
     t.integer "lastWeek"
-    t.integer "acuumulated"
+    t.integer "accumulated"
     t.integer "si_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

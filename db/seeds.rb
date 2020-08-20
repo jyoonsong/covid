@@ -85,7 +85,7 @@ gu = Gu.create(
     today: 30,
     thisWeek: 30,
     lastWeek: 30,
-    acuumulated: 30,
+    accumulated: 30,
     si_id: si.id
 )
 
@@ -94,7 +94,7 @@ gu2 = Gu.create(
     today: 30,
     thisWeek: 30,
     lastWeek: 30,
-    acuumulated: 30,
+    accumulated: 30,
     si_id: si.id
 )
 
@@ -103,7 +103,7 @@ dong = Dong.create(
     today: 30,
     thisWeek: 30,
     lastWeek: 30,
-    acuumulated: 30,
+    accumulated: 30,
     gu_id: gu.id
 )
 
@@ -112,7 +112,7 @@ dong2 = Dong.create(
     today: 30,
     thisWeek: 30,
     lastWeek: 30,
-    acuumulated: 30,
+    accumulated: 30,
     gu_id: gu.id
 )
 
@@ -121,7 +121,7 @@ dong3 = Dong.create(
     today: 30,
     thisWeek: 30,
     lastWeek: 30,
-    acuumulated: 30,
+    accumulated: 30,
     gu_id: gu2.id
 )
 
