@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.boolean "routeIdentified"
     t.integer "age"
     t.integer "dong_id"
+    t.integer "gu_id"
+    t.integer "si_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.integer "lastWeek"
     t.integer "accumulated"
     t.integer "gu_id"
+    t.integer "si_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

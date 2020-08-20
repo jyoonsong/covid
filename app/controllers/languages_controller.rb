@@ -19,7 +19,9 @@ class LanguagesController < ApplicationController
         end
 
         # set other variables
-        @language_si = LanguageSi.find_by(language_id: @language.id, si_id: @si.id)
+        if !@language.nil? && !@si.nil?
+            @language_si = LanguageSi.find_by(language_id: @language.id, si_id: @si.id)
+        end
 
         render 'index'
     end
