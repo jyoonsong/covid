@@ -33,7 +33,7 @@ ko = Language.create(
     numConfirmedByLocation: "지역별 확진자 수",
     today: "금일",
     lastWeek: "전주",
-    guide: "이용법 안내글",
+    guide: "아래 표를 클릭하시면 해당하는 이동경로를 조회 가능합니다.",
     index: "번호",
     residence: "거주지",
     dateConfirmed: "확진일",
@@ -60,7 +60,7 @@ en = Language.create(
     numConfirmedByLocation: "Number of confirmed cases by location",
     today: "Today",
     lastWeek: "Last week",
-    guide: "User guide",
+    guide: "Click on each row to see the movement path of the corresponding case.",
     index: "Index",
     residence: "Residence area",
     dateConfirmed: "Date confirmed",
@@ -69,7 +69,7 @@ en = Language.create(
     confirmedName: "Name of the patient",
     infectionRoute: "Infection route",
     movementRoute: "Movement path",
-    image: "https://lh3.googleusercontent.com/proxy/t48BOoZr3cDLAXH7H6oBCmUNxfxKhP9WAx_TnetJQSOWMeJDM2VTg2UBfo3aSXWR2b608Ac3xok1gvFogtIR1oqbNAQ1vl5rJObAe0Ia94MsBk5E5y9Dtob2KvR1PpzZIymE5dlaHcaui9B7Ao2HaeBeK4bCodGAtkkEWj0AZsnZFZ5mUaSptwvIUr4zVw",
+    image: "https://monaghan.ie/wp-content/uploads/2020/03/COVID-19-A3-Public-Information-Poster-English-scaled.jpg",
 )
 
 si = Si.create(
@@ -133,6 +133,14 @@ confirmed = Confirmed.create(
     dong_id: dong.id
 )
 
+confirmed2 = Confirmed.create(
+    index: 2,
+    dateConfirmed: "2020-08-20",
+    routeIdentified: true,
+    age: 28,
+    dong_id: dong3.id
+)
+
 LanguageConfirmed.create(
     language_id: ko.id,
     confirmed_id: confirmed.id,
@@ -148,6 +156,24 @@ LanguageConfirmed.create(
     name: "Kim Dang Dang",
     gender: "Female",
     infectionRoute: "Air",
+    movementRoute: "DD high school - DD Karaoke - DD Playgroud",
+)
+
+LanguageConfirmed.create(
+    language_id: ko.id,
+    confirmed_id: confirmed2.id,
+    name: "김땡땡",
+    gender: "남",
+    infectionRoute: "접촉",
+    movementRoute: "땡땡고등학교 - 땡땡노래방 - 땡땡놀이터",
+)
+
+LanguageConfirmed.create(
+    language_id: en.id,
+    confirmed_id: confirmed2.id,
+    name: "Kim Dang Dang",
+    gender: "Male",
+    infectionRoute: "Touch",
     movementRoute: "DD high school - DD Karaoke - DD Playgroud",
 )
 

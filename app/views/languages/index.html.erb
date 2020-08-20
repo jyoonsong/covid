@@ -1,0 +1,103 @@
+
+<!-- Language menu -->
+<div class="row justify-content-center align-items-center my-3">
+    <div class="dropdown mr-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= @language.name %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="selectLanguage">
+            <% @languages.each_with_index do |lang, i| %>
+                <% if @language.id - 1 != i %>
+                    <%= link_to "#{lang.name}", "/#{lang.id}/#{@si.id}", class: "dropdown-item" %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <span>
+        <% @languages.each_with_index do |lang, i| %>
+            <%= lang.name %>
+            <% if @languages.size - 1 != i %>
+                /
+            <% end %>
+        <% end %>
+    </span>
+</div>
+
+<hr>
+
+<!-- Title -->
+<div class="row justify-content-center mb-2">
+    <h1><%= @language.title %></h1>
+</div>
+
+<!-- Location and date -->
+<div class="row justify-content-center align-items-center">
+    <strong class="mr-2"><%= @language.location %></strong>
+    <div class="dropdown mr-4">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLocation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= @language_si.name %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="selectLocation">
+            <% @sis.each_with_index do |si, i| %>
+                <% if @si.id - 1 != i %>
+                    <% language_si = LanguageSi.find_by(language_id: @language.id, si_id: si.id) %>
+                    <%= link_to "#{language_si.name}", "/#{@language.id}/#{si.id}", class: "dropdown-item" %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <div>
+        <strong class="mr-2"><%= @language.date %></strong>
+        <span><%= Time.now.strftime("%Y-%m-%d") %></span>
+    </div>
+</div>
+
+<hr>
+
+<!-- Menu -->
+<div class="row justify-content-center align-items-center">
+    <div class="col">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="confirmed-tab" data-toggle="pill" href="#confirmed" role="tab" aria-controls="confirmed" aria-selected="true">
+                    <%= @language.numConfirmed %>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="route-tab" data-toggle="pill" href="#route" role="tab" aria-controls="route" aria-selected="false">
+                    <%= @language.route %>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="prevention-tab" data-toggle="pill" href="#prevention" role="tab" aria-controls="prevention" aria-selected="false">
+                    <%= @language.prevention %>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main content -->
+<div class="row mb-5">
+    <div class="col">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="confirmed" role="tabpanel" aria-labelledby="confirmed-tab">
+                <%= render partial: "numConfirmed" %>
+            </div>
+            <div class="tab-pane fade" id="route" role="tabpanel" aria-labelledby="route-tab">
+                <%= render partial: "route" %>
+            </div>
+            <div class="tab-pane fade" id="prevention" role="tabpanel" aria-labelledby="prevention-tab">
+                <%= render partial: "prevention" %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

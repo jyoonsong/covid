@@ -1,6 +1,8 @@
 class Dong < ApplicationRecord
-    has_many :language_dongs
+    belongs_to :gu
+
+    belongs_to :si
 
     has_many :confirmeds
-    belongs_to :gu
+    has_many :language_dongs
 end

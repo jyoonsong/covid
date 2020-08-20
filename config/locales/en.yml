@@ -31,3 +31,83 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    label:
+      language_confirmed:
+        confirmed: 확진자
+        name: 확진자명
+        language: 언어
+        gender: 성별
+        infectionRoute: 감염경로
+        movementRoute: 이동경로
+      language_si:
+        name: 번역된 시명
+        si: 시명
+        language: 언어
+      language_gu:
+        name: 번역된 구명
+        gu: 구명
+        language: 언어
+      language_dong:
+        name: 번역된 동명
+        dong: 동명
+        language: 언어
+      language:
+        name: 언어명
+        title: 제목
+        location: 지역
+        date: 날짜
+        numConfirmed: 확진자 수
+        route: 이동동선
+        prevention: 예방행동수칙
+        inProcess: 검사진행
+        monitored: 감시대상
+        thisWeek: 금주
+        accumulated: 누적
+        numConfirmedByLocation: 지역별 확진자 수
+        today: 금일
+        lastWeek: 전주
+        guide: 이용법 안내글
+        index: 번호
+        residence: 거주지
+        dateConfirmed: 확진일
+        routeIdentified: 경로파악
+        genderAge: 성별연령
+        confirmedName: 확진자명
+        infectionRoute: 감염경로
+        movementRoute: 이동경로
+        image: 예방행동수칙 이미지 URL
+      si:
+        name: 시명
+        gus: 이 시에 소속된 시들
+        language_sis: 번역본 (Language Sis)
+        inProcessThisWeek: 검사진행 금주
+        inProcessAccumulated: 검사진행 누적
+        monitoredThisWeek: 감시대상 금주
+        monitoredAccumulated: 감시대상 누적
+      gu:
+        name: 구명
+        si_id: 이 구가 소속된 시
+        dongs: 이 구에 소속된 동들
+        language_gus: 번역본 (Language Gus)
+        today: 금일
+        thisWeek: 금주
+        lastWeek: 전주
+        accumulated: 누적
+      dong:
+        name: 동명
+        gu_id: 이 동이 소속된 구
+        language_dongs: 번역본 (Language Dongs)
+        today: 금일
+        thisWeek: 금주
+        lastWeek: 전주
+        accumulated: 누적
+      confirmed: 
+        index: 번호
+        dateConfirmed: 확진일
+        routeIdentified: 경로파악여부
+        age: 연령
+        dong: 거주지 동
+        gu: 거주지 구
+        si: 거주지 시
+        language_confirmeds: 번역본 (Language Confirmeds)
