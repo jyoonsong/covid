@@ -42,7 +42,7 @@
         3. 현재 등록된 언어 수만큼 2번을 반복
     3. **확진자를 새로 등록하고 싶은 경우 두 번째 방법**
         1. http://covidhere.herokuapp.com/confirmeds
-        2. [예시 파일]()과 같은 양식의 CSV파일 업로드
+        2. [예시 파일](https://github.com/jyoonsong/yongin/blob/master/example.csv)과 같은 양식의 CSV파일 업로드
         3. 이때 index가 기준이 되므로 반드시 겹치는 숫자 없게 작성해주셔야 합니다.
         4. Index가 이미 존재하는 경우 기존 정보가 업데이트되고, index가 존재하지 않는 경우 새롭게 추가됩니다.
 
