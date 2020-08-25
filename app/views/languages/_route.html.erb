@@ -5,13 +5,15 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead class="thead-dark">
-            <th scope="col"><%= @language.index || "Not updated yet" %></th>
-            <th scope="col"><%= @language.residence || "Not updated yet" %></th>
-            <th scope="col"><%= @language.dateConfirmed || "Not updated yet" %></th>
-            <th scope="col"><%= @language.routeIdentified || "Not updated yet" %></th>
-            <th scope="col"><%= @language.genderAge || "Not updated yet" %></th>
-            <th scope="col"><%= @language.confirmedName || "Not updated yet" %></th>
-            <th scope="col"><%= @language.infectionRoute || "Not updated yet" %></th> 
+            <tr class="text-center">
+                <th scope="col"><%= @language.index || "Not updated yet" %></th>
+                <th scope="col"><%= @language.residence || "Not updated yet" %></th>
+                <th scope="col"><%= @language.dateConfirmed || "Not updated yet" %></th>
+                <th scope="col"><%= @language.routeIdentified || "Not updated yet" %></th>
+                <th scope="col"><%= @language.genderAge || "Not updated yet" %></th>
+                <th scope="col"><%= @language.confirmedName || "Not updated yet" %></th>
+                <th scope="col"><%= @language.infectionRoute || "Not updated yet" %></th> 
+            </tr>
         </thead>
         <tbody>
             <% @si.confirmeds.sort_by(&:index).each do |c| %>
