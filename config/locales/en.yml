@@ -31,6 +31,35 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      language_confirmed:
+        one: 번역본 - 확진자
+        other: 번역본 - 확진자
+      language_si:
+        one: 번역본 - 시명
+        other: 번역본 - 시명
+      language_gu:
+        one: 번역본 - 구명
+        other: 번역본 - 구명
+      language_dong:
+        one: 번역본 - 동명
+        other: 번역본 - 동명
+      language:
+        one: 언어
+        other: 언어들
+      confirmed: 
+        one: 확진자
+        other: 확진자들
+      si:
+        one: 시 및 시별 통계
+        other: 시 및 시별 통계
+      gu:
+        one: 구 및 구별 통계
+        other: 구 및 구별 통계
+      dong:
+        one: 동 및 동별 통계
+        other: 동 및 동별 통계
   helpers:
     label:
       language_confirmed:
@@ -79,7 +108,8 @@ en:
         image: 예방행동수칙 이미지 URL
       si:
         name: 시명
-        gus: 이 시에 소속된 시들
+        gus: 이 시에 소속된 구들
+        dongs: 이 시에 소속된 동들
         language_sis: 번역본 (Language Sis)
         inProcessThisWeek: 검사진행 금주
         inProcessAccumulated: 검사진행 누적
@@ -87,6 +117,7 @@ en:
         monitoredAccumulated: 감시대상 누적
       gu:
         name: 구명
+        si: 이 구가 소속된 시
         si_id: 이 구가 소속된 시
         dongs: 이 구에 소속된 동들
         language_gus: 번역본 (Language Gus)
@@ -96,7 +127,9 @@ en:
         accumulated: 누적
       dong:
         name: 동명
+        gu: 이 동이 소속된 구
         gu_id: 이 동이 소속된 구
+        confirmeds: 이 동에 거주하는 확진자들
         language_dongs: 번역본 (Language Dongs)
         today: 금일
         thisWeek: 금주
