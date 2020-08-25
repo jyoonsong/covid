@@ -7,13 +7,16 @@ class ConfirmedsController < ApplicationController
     )
 
     def index
-        @confirmeds = Confirmed.all
+        @languages = Language.select(:name, :id).all
         render 'index'
     end
 
     def import
-        file = params[:file]
-        csv = CSV.parse(File.read(file.path), headers: true)
+        @lang = Language.find(params[:language_id])
+
+        file = File.read(params[:file].path).force_encoding("UTF-8")
+        csv = CSV.parse(file, headers: true)
+
         csv.each do |row|
             confirmed = Confirmed.find_by(index: row["index"])
             if (confirmed.nil?)
@@ -35,6 +38,15 @@ class ConfirmedsController < ApplicationController
                 
                 c.save
 
+                c_lang = LanguageConfirmed.new
+                c_lang.language_id = @lang.id
+                c_lang.confirmed_id = c.id
+                c_lang.name = row["name"]
+                c_lang.gender = row["gender"]
+                c_lang.infectionRoute = row["infectionRoute"]
+                c_lang.movementRoute = row["movementRoute"]
+                c_lang.save
+
             else
                 # confirmed.index = row["index"]
                 confirmed.dateConfirmed = row["dateConfirmed"]
@@ -52,6 +64,20 @@ class ConfirmedsController < ApplicationController
                 end
                 
                 confirmed.save
+
+                c_lang = LanguageConfirmed.find_by(language_id: @lang.id, confirmed_id: confirmed.id)
+                if (c_lang.nil?)
+                    c_lang = LanguageConfirmed.new
+                end
+
+                c_lang.language_id = @lang.id
+                c_lang.confirmed_id = confirmed.id
+                c_lang.name = row["name"]
+                c_lang.gender = row["gender"]
+                c_lang.infectionRoute = row["infectionRoute"]
+                c_lang.movementRoute = row["movementRoute"]
+                c_lang.save
+
             end
         end
         redirect_to confirmeds_path, notice: "Successfully imported data"

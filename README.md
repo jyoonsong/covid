@@ -1,24 +1,45 @@
-# README
+# Corona Here
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* How to run
+    * git clone
+    * `bundle && rails s`
 
-Things you may want to cover:
+* Setup
+    1. **시/동/구 지역(예: 처인구)을 새로 등록하고 싶은 경우**
+        1. `구 및 구별 통계`에서 `New gu` 버튼 클릭
+            - 소속된 시로 '용인시' 선택
+            - 구명에 '처인구' 입력
+            - `Create 구 및 구별 통계` 클릭해서 생성
+        2. `번역본 - 구명`에서 `New language gu` 버튼 클릭
+            - language로 '베트남어' 선택
+            - gu로는 방금 생성한 '처인구' 선택
+            - 베트남어로 번역된 구명 입력
+            - `Create 번역본 - 구명` 클릭해서 생성
+        3. 현재 등록된 언어 수만큼 2번을 반복
+    2. **언어(예: 베트남어)를 새로 등록하고 싶은 경우**
+        1. `언어들`에서 `New language` 선택
+            - 모든 필드 베트남어로 번역해서 채워넣기
+            - 베트남어로 번역된 예방행동수칙 이미지를 [https://imgbb.com/](https://imgbb.com/)에 업로드 후 링크를 `예방행동수칙 이미지 URL`에 입력
+            - `Create 언어` 클릭해서 생성
+        2. `번역본 - 시명`, `번역본 - 구명`, `번역본 - 동명`에서 베트남어로 시/구/동명을 번역
+            - 현재 등록된 모든 시/구/동에 대하여 2번을 수행
+        3. `번역본 - 확진자`에서 베트남어로 확진자를 번역
+            - 현재 등록된 모든 확진자에 대하여 3번을 수행
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* How to use
+    1. **확진자를 새로 등록하고 싶은 경우**
+        1. `확진자들`에서 `New confirmed` 선택
+            - 정보 입력 후 `Create 확진자` 클릭해서 생성
+        2. `번역본 - 확진자`에서 `New language confirmed` 선택
+            - language로 언어 선택
+            - confirmed로는 방금 생성한 확진자 선택
+            - 해당 언어로 번역된 확진자 정보 입력
+            - `Create 번역본 - 확진자` 클릭해서 생성
+        3. 현재 등록된 언어 수만큼 2번을 반복
+    2. **매일 통계를 새로 등록하고 싶은 경우**
+        - `시 및 시별 통계`에서 각 시 Edit 클릭, 통계량 입력 후 Update
+        - `구 및 구별 통계`에서 각 구 Edit 클릭, 통계량 입력 후 Update
+        - `동 및 동별 통계`에서 각 동 Edit 클릭, 통계량 입력 후 Update
+   
+    
+    

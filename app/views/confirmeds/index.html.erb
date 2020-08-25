@@ -1,39 +1,65 @@
 <%= flash[:notice] %>
 
-<h1>CSV 파일 업로드해주세요</h1>
+<h1>CSV로 확진자 정보 등록</h1>
 
 <div>
     <%= form_tag import_confirmeds_path, multipart: true do %>
-        <%= file_field_tag :file %>
+        <div>
+            언어 선택:
+            <%= select_tag 'language_id', options_for_select(Language.all.collect{ |l| [l.name, l.id] }) %>
+        </div>
+        
+        <div>
+            CSV 파일 업로드: 
+            <%= file_field_tag :file %>
+        </div>
+
         <%= submit_tag "업로드하기" %>
     <% end %>
 </div>
 
-<table class="table table-bordered my-3">
-    <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th>번호 (index)</th>
-            <th>확진일 (dateConfirmed)</th>
-            <th>경로파악여부 (routeIdentified)</th>
-            <th>연령 (age)</th>
-            <th>거주지 동 (dong_id)</th>
-            <th>거주지 구 (gu_id)</th>
-            <th>거주지 시 (si_id)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @confirmeds.each do |c| %>
+<% @languages.each do |lang| %>
+    <%= lang.name %>
+    <div class="table-responsive">
+    <table class="table table-bordered my-3">
+        <thead class="thead-dark">
             <tr>
-                <td><%= c.id %></td>
-                <td><%= c.index %></td>
-                <td><%= c.dateConfirmed %></td>
-                <td><%= c.routeIdentified %></td>
-                <td><%= c.age %></td>
-                <td><%= c.dong_id %></td>
-                <td><%= c.gu_id %></td>
-                <td><%= c.si_id %></td>
+                <th>ID</th>
+                <th>번호 (index)</th>
+                <th>확진일 (dateConfirmed)</th>
+                <th>경로파악여부 (routeIdentified)</th>
+                <th>연령 (age)</th>
+                <th>거주지 동 (dong_id)</th>
+                <th>거주지 구 (gu_id)</th>
+                <th>거주지 시 (si_id)</th>
+                <th>번역된 언어</th>
+                <th>확진자명 (name)</th>
+                <th>성별 (gender)</th>
+                <th>감염경로 (infectionRoute)</th>
+                <th>이동경로 (movementRoute)</th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% c_langs = lang.language_confirmeds %>
+            <% c_langs.each do |c_lang| %>
+                <% c = c_lang.confirmed %>
+                <tr>
+                    <td><%= c.id %></td>
+                    <td><%= c.index %></td>
+                    <td><%= c.dateConfirmed %></td>
+                    <td><%= c.routeIdentified %></td>
+                    <td><%= c.age %></td>
+                    <td><%= c.dong_id %></td>
+                    <td><%= c.gu_id %></td>
+                    <td><%= c.si_id %></td>
+                    <td><%= c_lang.language.name %></td>
+                    <td><%= c_lang.name %></td>
+                    <td><%= c_lang.gender %></td>
+                    <td><%= c_lang.infectionRoute %></td>
+                    <td><%= simple_format(c_lang.movementRoute) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+<% end %>
