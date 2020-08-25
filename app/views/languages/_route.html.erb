@@ -29,7 +29,7 @@
                 <tr class="table-secondary collapse" id="collapse<%= c.id %>">
                     <td colspan="7">
                         <strong><%= @language.movementRoute || "Not updated yet" %></strong> &nbsp;
-                        <%= c_lang.nil? "Not updated yet" : simple_format(c_lang.movementRoute) %>
+                        <%= c_lang.nil? ? "Not updated yet" : simple_format(c_lang.movementRoute) %>
                     </td>
                 </tr>
             <% end %>
