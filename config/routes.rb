@@ -15,8 +15,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "languages#index"
+
+  resources :confirmeds do
+    collection {post :import}
+  end
+
   get "/:id", to: "languages#index"
   get "/:id/:si_id", to: "languages#index"
   post "/:id/:si_id", to: "languages#index"
+
   
 end

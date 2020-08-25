@@ -1,0 +1,39 @@
+<%= flash[:notice] %>
+
+<h1>CSV 파일 업로드해주세요</h1>
+
+<div>
+    <%= form_tag import_confirmeds_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "업로드하기" %>
+    <% end %>
+</div>
+
+<table class="table table-bordered my-3">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>번호 (index)</th>
+            <th>확진일 (dateConfirmed)</th>
+            <th>경로파악여부 (routeIdentified)</th>
+            <th>연령 (age)</th>
+            <th>거주지 동 (dong_id)</th>
+            <th>거주지 구 (gu_id)</th>
+            <th>거주지 시 (si_id)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @confirmeds.each do |c| %>
+            <tr>
+                <td><%= c.id %></td>
+                <td><%= c.index %></td>
+                <td><%= c.dateConfirmed %></td>
+                <td><%= c.routeIdentified %></td>
+                <td><%= c.age %></td>
+                <td><%= c.dong_id %></td>
+                <td><%= c.gu_id %></td>
+                <td><%= c.si_id %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
