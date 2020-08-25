@@ -21,9 +21,9 @@
                     <td><%= c.residence(@language.id) || "Not updated yet" %></td>
                     <td><%= c.dateConfirmed || "Not updated yet" %></td>
                     <td><%= c.identified() || "Not updated yet" %></td>
-                    <td><%= c_lang.gender || "Not updated yet" %> / <%= c.age || "Not updated yet" %></td>
-                    <td><%= c_lang.name || "Not updated yet" %></td>
-                    <td><%= c_lang.infectionRoute || "Not updated yet" %></td>
+                    <td><%= c_lang.empty? ? "Not updated yet" : c_lang.gender %> / <%= c.age || "Not updated yet" %></td>
+                    <td><%= c_lang.empty? ? "Not updated yet" : c_lang.name %></td>
+                    <td><%= c_lang.empty? ? "Not updated yet" : c_lang.infectionRoute %></td>
                 </tr>
 
                 <tr class="table-secondary collapse" id="collapse<%= c.id %>">
