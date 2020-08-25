@@ -10,7 +10,6 @@ class GuDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     si: Field::BelongsTo,
     dongs: Field::HasMany,
-    confirmeds: Field::HasMany,
     language_gus: Field::HasMany,
     id: Field::Number,
     name: Field::String,
@@ -39,7 +38,6 @@ class GuDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   si
   dongs
-  confirmeds
   language_gus
   id
   name

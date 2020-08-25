@@ -9,8 +9,8 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     dong: Field::BelongsTo,
-    gu: Field::HasOne,
-    si: Field::HasOne,
+    gu: Field::BelongsTo,
+    si: Field::BelongsTo,
     language_confirmeds: Field::HasMany,
     id: Field::Number,
     index: Field::Number,
@@ -60,7 +60,6 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   dong
   gu
   si
-  language_confirmeds
   ].freeze
 
   # COLLECTION_FILTERS
@@ -79,6 +78,6 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(confirmed)
-    "Case #{confirmed.index} - #{confirmed.dateConfirmed}"
+    "확진자 #{confirmed.index} - #{confirmed.dateConfirmed} - #{confirmed.age}세"
   end
 end

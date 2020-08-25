@@ -10,8 +10,6 @@ class SiDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     language_sis: Field::HasMany,
     gus: Field::HasMany,
-    dongs: Field::HasMany,
-    confirmeds: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     inProcessThisWeek: Field::Number,
@@ -39,8 +37,6 @@ class SiDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   language_sis
   gus
-  dongs
-  confirmeds
   id
   name
   inProcessThisWeek
