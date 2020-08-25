@@ -1,6 +1,6 @@
 
 <!-- Language menu -->
-<div class="row justify-content-center align-items-center my-3">
+<div class="row align-items-center pl-3 my-3">
     <div class="dropdown mr-3">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= @language.name %>
@@ -36,12 +36,12 @@
     <strong class="mr-2"><%= @language.location %></strong>
     <div class="dropdown mr-4">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLocation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= @language_si.name %>
+            <%= @language_si.name || @si.name %>
         </button>
         <div class="dropdown-menu" aria-labelledby="selectLocation">
             <% @sis.each_with_index do |si, i| %>
                 <% if @si.id - 1 != i %>
-                    <% language_si = LanguageSi.find_by(language_id: @language.id, si_id: si.id) %>
+                    <% language_si = LanguageSi.find_by(language_id: @language.id, si_id: si.id) || si %>
                     <%= link_to "#{language_si.name}", "/#{@language.id}/#{si.id}", class: "dropdown-item" %>
                 <% end %>
             <% end %>

@@ -1,1 +1,5 @@
-<img src="<%= @language.image %>" class="img-fluid mb-4" alt="public advice for coronavirus">
+<% if @language.image.nil? %> 
+    Not updated yet
+<% else %>
+    <img src="<%= @language.image %>" class="img-fluid mb-4" alt="public advice for coronavirus">
+<% end %>

@@ -5,31 +5,31 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead class="thead-dark">
-            <th scope="col"><%= @language.index %></th>
-            <th scope="col"><%= @language.residence %></th>
-            <th scope="col"><%= @language.dateConfirmed %></th>
-            <th scope="col"><%= @language.routeIdentified %></th>
-            <th scope="col"><%= @language.genderAge %></th>
-            <th scope="col"><%= @language.confirmedName %></th>
-            <th scope="col"><%= @language.infectionRoute %></th> 
+            <th scope="col"><%= @language.index || "Not updated yet" %></th>
+            <th scope="col"><%= @language.residence || "Not updated yet" %></th>
+            <th scope="col"><%= @language.dateConfirmed || "Not updated yet" %></th>
+            <th scope="col"><%= @language.routeIdentified || "Not updated yet" %></th>
+            <th scope="col"><%= @language.genderAge || "Not updated yet" %></th>
+            <th scope="col"><%= @language.confirmedName || "Not updated yet" %></th>
+            <th scope="col"><%= @language.infectionRoute || "Not updated yet" %></th> 
         </thead>
         <tbody>
             <% @si.confirmeds.sort_by(&:index).each do |c| %>
                 <% c_lang = LanguageConfirmed.find_by(language_id: @language.id, confirmed_id: c.id) %>
                 <tr data-toggle="collapse" data-target="#collapse<%= c.id %>" aria-expanded="false" aria-controls="collapse<%= c.id %>" role="button">
                     <th scope="row"><%= c.index %></th>
-                    <td><%= c.residence(@language.id) %></td>
-                    <td><%= c.dateConfirmed %></td>
-                    <td><%= c.identified() %></td>
-                    <td><%= c_lang.gender %> / <%= c.age %></td>
-                    <td><%= c_lang.name %></td>
-                    <td><%= c_lang.infectionRoute %></td>
+                    <td><%= c.residence(@language.id) || "Not updated yet" %></td>
+                    <td><%= c.dateConfirmed || "Not updated yet" %></td>
+                    <td><%= c.identified() || "Not updated yet" %></td>
+                    <td><%= c_lang.gender || "Not updated yet" %> / <%= c.age || "Not updated yet" %></td>
+                    <td><%= c_lang.name || "Not updated yet" %></td>
+                    <td><%= c_lang.infectionRoute || "Not updated yet" %></td>
                 </tr>
 
                 <tr class="table-secondary collapse" id="collapse<%= c.id %>">
                     <td colspan="7">
-                        <strong><%= @language.movementRoute %></strong> &nbsp;
-                        <%= c_lang.movementRoute %>
+                        <strong><%= @language.movementRoute || "Not updated yet" %></strong> &nbsp;
+                        <%= c_lang.movementRoute || "Not updated yet" %>
                     </td>
                 </tr>
             <% end %>
