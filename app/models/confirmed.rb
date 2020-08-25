@@ -10,11 +10,17 @@ class Confirmed < ApplicationRecord
         result = ""
 
         if (!self.gu.nil?)
-            result += LanguageGu.find_by(language_id: language_id, gu_id: self.gu.id).name + " "
+            language_gu = LanguageGu.find_by(language_id: language_id, gu_id: self.gu.id)
+            if (!language_gu.nil?)
+                result += language_gu.name + " "
+            end
         end
 
         if (!self.dong_id.nil?)
-            result += LanguageDong.find_by(language_id: language_id, dong_id: self.dong_id).name
+            language_dong = LanguageDong.find_by(language_id: language_id, dong_id: self.dong_id)
+            if (!language_dong.nil?)
+                result += language_dong.name
+            end
         end
 
         return result
