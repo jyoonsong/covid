@@ -46,7 +46,7 @@
                 </tr>
 
                 <% gu.dongs.each do |dong| %>
-                    <% language_dong = LanguageDong.find_by(language_id: @language.id, dong_id: dong.id) || dong %>
+                    <% language_dong = LanguageDong.find_by(language_id: @language.id, dong_id: dong.id) %>
                     <tr class="collapse collapse<%= gu.id %>" id="collapse<%= gu.id %>-<%= dong.id %>">
                         <th><%= language_dong.name || "Not updated yet" %></th>
                         <td class="text-right"><%= dong.today || "Not updated yet" %></td>
