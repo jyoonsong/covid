@@ -6,8 +6,8 @@
             <%= @language.name %>
         </button>
         <div class="dropdown-menu" aria-labelledby="selectLanguage">
-            <% @languages.each_with_index do |lang, i| %>
-                <% if @language.id - 1 != i %>
+            <% @languages.each do |lang| %>
+                <% if @language.id != lang.id %>
                     <%= link_to "#{lang.name}", "/#{lang.id}/#{@si.id}", class: "dropdown-item" %>
                 <% end %>
             <% end %>
