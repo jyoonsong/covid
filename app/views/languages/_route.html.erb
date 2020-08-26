@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <% @si.confirmeds.sort_by(&:index).each do |c| %>
+            <% @si.confirmeds.sort_by { |c| c[:index] }.reverse.each do |c| %>
                 <% c_lang = LanguageConfirmed.find_by(language_id: @language.id, confirmed_id: c.id) %>
                 <tr data-toggle="collapse" data-target="#collapse<%= c.id %>" aria-expanded="false" aria-controls="collapse<%= c.id %>" role="button">
                     <th scope="row"><%= c.index %></th>

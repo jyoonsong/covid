@@ -38,7 +38,7 @@
             <% @si.gus.each do |gu| %>
                 <% language_gu = LanguageGu.find_by(language_id: @language.id, gu_id: gu.id) || gu%>
                 <tr class="table-secondary" data-toggle="collapse" data-target=".collapse<%= gu.id %>" aria-expanded="false" aria-controls="collapse<%= gu.id %>" role="button">
-                    <th><%= language_gu.name || "Not updated yet" %></th>
+                    <th><%= language_gu.nil? ? "Not updated yet" : language_gu.name %></th>
                     <td class="text-right"><%= gu.today || "Not updated yet" %></td>
                     <td class="text-right"><%= gu.thisWeek || "Not updated yet" %></td>
                     <td class="text-right"><%= gu.lastWeek || "Not updated yet" %></td>
@@ -48,7 +48,7 @@
                 <% gu.dongs.each do |dong| %>
                     <% language_dong = LanguageDong.find_by(language_id: @language.id, dong_id: dong.id) %>
                     <tr class="collapse collapse<%= gu.id %>" id="collapse<%= gu.id %>-<%= dong.id %>">
-                        <th><%= language_dong.name || "Not updated yet" %></th>
+                        <th><%= language_dong.nil? ? "Not updated yet" : language_dong.name %></th>
                         <td class="text-right"><%= dong.today || "Not updated yet" %></td>
                         <td class="text-right"><%= dong.thisWeek || "Not updated yet" %></td>
                         <td class="text-right"><%= dong.lastWeek || "Not updated yet" %></td>
