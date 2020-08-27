@@ -129,6 +129,8 @@ en:
         name: 동명
         gu: 이 동이 소속된 구
         gu_id: 이 동이 소속된 구
+        si: 이 동이 소속된 시
+        si_id: 이 동이 소속된 시
         confirmeds: 이 동에 거주하는 확진자들
         language_dongs: 번역본 (Language Dongs)
         today: 금일
