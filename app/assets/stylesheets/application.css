@@ -27,3 +27,6 @@
  .text-muted {
     font-size: .8rem;
  }
+ .dropdown .btn {
+    width: 100%;
+ }

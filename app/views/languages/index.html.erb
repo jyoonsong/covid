@@ -1,7 +1,7 @@
 
 <!-- Language menu -->
 <div class="row align-items-center my-3">
-    <div class="dropdown col-4 col-sm-2">
+    <div class="dropdown col-5 col-sm-2">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= @language.name %>
         </button>
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="col-8 col-sm-10 text-muted pl-0">
+    <div class="col-7 col-sm-10 text-muted pl-0">
         <% @languages.each_with_index do |lang, i| %>
             <%= lang.name %>
             <% if @languages.size - 1 != i %>
