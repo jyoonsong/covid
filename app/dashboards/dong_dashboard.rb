@@ -9,6 +9,7 @@ class DongDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     gu: Field::BelongsTo,
+    si: Field::BelongsTo,
     confirmeds: Field::HasMany,
     language_dongs: Field::HasMany,
     id: Field::Number,
