@@ -8,15 +8,12 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    dong: Field::BelongsTo,
-    gu: Field::BelongsTo,
     si: Field::BelongsTo,
     language_confirmeds: Field::HasMany,
     id: Field::Number,
     index: Field::Number,
     dateConfirmed: Field::String,
     routeIdentified: Field::Boolean,
-    age: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -28,7 +25,7 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
   index
-  dong
+  si
   language_confirmeds
   updated_at
   ].freeze
@@ -40,11 +37,8 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   index
   dateConfirmed
   routeIdentified
-  age
   created_at
   updated_at
-  dong
-  gu
   si
   language_confirmeds
   ].freeze
@@ -56,9 +50,6 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   index
   dateConfirmed
   routeIdentified
-  age
-  dong
-  gu
   si
   ].freeze
 
@@ -78,6 +69,6 @@ class ConfirmedDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(confirmed)
-    "확진자 #{confirmed.index} - #{confirmed.dateConfirmed} - #{confirmed.age}세"
+    "확진자 #{confirmed.index} - #{confirmed.dateConfirmed}"
   end
 end

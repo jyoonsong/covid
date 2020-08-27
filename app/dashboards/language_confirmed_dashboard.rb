@@ -18,7 +18,7 @@ class LanguageConfirmedDashboard < Administrate::BaseDashboard
     ),
     id: Field::Number,
     name: Field::String,
-    gender: Field::String,
+    genderAge: Field::String,
     infectionRoute: Field::String,
     movementRoute: Field::Text,
     created_at: Field::DateTime,
@@ -44,7 +44,7 @@ class LanguageConfirmedDashboard < Administrate::BaseDashboard
   confirmed
   id
   name
-  gender
+  genderAge
   infectionRoute
   movementRoute
   created_at

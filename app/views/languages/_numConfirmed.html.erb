@@ -36,7 +36,7 @@
         </thead>
         <tbody>
             <% @si.gus.each do |gu| %>
-                <% language_gu = LanguageGu.find_by(language_id: @language.id, gu_id: gu.id) || gu%>
+                <% language_gu = LanguageGu.find_by(language_id: @language.id, gu_id: gu.id) %>
                 <tr class="table-secondary" data-toggle="collapse" data-target=".collapse<%= gu.id %>" aria-expanded="false" aria-controls="collapse<%= gu.id %>" role="button">
                     <th><%= language_gu.nil? ? "Not updated yet" : language_gu.name %></th>
                     <td class="text-right"><%= gu.today || "Not updated yet" %></td>

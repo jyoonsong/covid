@@ -132,9 +132,6 @@ confirmed = Confirmed.create(
     index: 1,
     dateConfirmed: "2020-08-19",
     routeIdentified: true,
-    age: 28,
-    dong_id: dong.id,
-    gu_id: dong.gu_id,
     si_id: dong.si_id
 )
 
@@ -142,9 +139,6 @@ confirmed2 = Confirmed.create(
     index: 2,
     dateConfirmed: "2020-08-20",
     routeIdentified: true,
-    age: 28,
-    dong_id: dong3.id,
-    gu_id: dong3.gu_id,
     si_id: dong3.si_id
 )
 
@@ -152,7 +146,8 @@ LanguageConfirmed.create(
     language_id: ko.id,
     confirmed_id: confirmed.id,
     name: "김땡땡",
-    gender: "여",
+    genderAge: "여/28",
+    residence: "처인구",
     infectionRoute: "공기",
     movementRoute: "땡땡고등학교 - 땡땡노래방 - 땡땡놀이터",
 )
@@ -161,7 +156,8 @@ LanguageConfirmed.create(
     language_id: en.id,
     confirmed_id: confirmed.id,
     name: "Kim Dang Dang",
-    gender: "Female",
+    genderAge: "Female/28",
+    residence: "Cheoin-gu",
     infectionRoute: "Air",
     movementRoute: "DD high school - DD Karaoke - DD Playgroud",
 )
@@ -170,7 +166,8 @@ LanguageConfirmed.create(
     language_id: ko.id,
     confirmed_id: confirmed2.id,
     name: "김땡땡",
-    gender: "남",
+    genderAge: "남/29",
+    residence: "수지구 역삼동",
     infectionRoute: "접촉",
     movementRoute: "땡땡고등학교 - 땡땡노래방 - 땡땡놀이터",
 )
@@ -179,7 +176,8 @@ LanguageConfirmed.create(
     language_id: en.id,
     confirmed_id: confirmed2.id,
     name: "Kim Dang Dang",
-    gender: "Male",
+    genderAge: "Male/29",
+    residence: "Suji-gu Yeoksam-dong",
     infectionRoute: "Touch",
     movementRoute: "DD high school - DD Karaoke - DD Playgroud",
 )

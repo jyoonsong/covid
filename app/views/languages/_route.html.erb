@@ -20,10 +20,10 @@
                 <% c_lang = LanguageConfirmed.find_by(language_id: @language.id, confirmed_id: c.id) %>
                 <tr data-toggle="collapse" data-target="#collapse<%= c.id %>" aria-expanded="false" aria-controls="collapse<%= c.id %>" role="button">
                     <th scope="row"><%= c.index %></th>
-                    <td><%= c.residence(@language.id) || "Not updated yet" %></td>
+                    <td><%= c_lang.nil? ? "Not updated yet" : c_lang.residence %></td>
                     <td><%= c.dateConfirmed || "Not updated yet" %></td>
                     <td><%= c.identified() || "Not updated yet" %></td>
-                    <td><%= c_lang.nil? ? "Not updated yet" : c_lang.gender %> / <%= c.age || "Not updated yet" %></td>
+                    <td><%= c_lang.nil? ? "Not updated yet" : c_lang.genderAge %></td>
                     <td><%= c_lang.nil? ? "Not updated yet" : c_lang.name %></td>
                     <td><%= c_lang.nil? ? "Not updated yet" : c_lang.infectionRoute %></td>
                 </tr>

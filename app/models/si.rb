@@ -3,5 +3,6 @@ class Si < ApplicationRecord
     
     has_many :gus
     has_many :dongs, through: :gus
-    has_many :confirmeds, through: :dongs
+    
+    has_many :confirmeds
 end

@@ -21,3 +21,6 @@
  .table thead th {
      vertical-align: middle;
  }
+ .table td {
+     white-space: nowrap
+ }

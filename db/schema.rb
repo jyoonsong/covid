@@ -19,9 +19,6 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.integer "index"
     t.string "dateConfirmed"
     t.boolean "routeIdentified"
-    t.integer "age"
-    t.integer "dong_id"
-    t.integer "gu_id"
     t.integer "si_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,7 +51,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_134009) do
     t.bigint "language_id"
     t.bigint "confirmed_id"
     t.string "name"
-    t.string "gender"
+    t.string "genderAge"
+    t.string "residence"
     t.string "infectionRoute"
     t.text "movementRoute"
     t.datetime "created_at", null: false

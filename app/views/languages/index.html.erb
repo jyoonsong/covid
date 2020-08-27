@@ -36,11 +36,11 @@
     <strong class="mr-2"><%= @language.location %></strong>
     <div class="dropdown mr-4">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLocation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= @language_si.name || @si.name %>
+            <%= @language_si.nil? ? @si.name : @language_si.name %>
         </button>
         <div class="dropdown-menu" aria-labelledby="selectLocation">
-            <% @sis.each_with_index do |si, i| %>
-                <% if @si.id - 1 != i %>
+            <% @sis.each do |si| %>
+                <% if @si.id != si.id  %>
                     <% language_si = LanguageSi.find_by(language_id: @language.id, si_id: si.id) || si %>
                     <%= link_to "#{language_si.name}", "/#{@language.id}/#{si.id}", class: "dropdown-item" %>
                 <% end %>
