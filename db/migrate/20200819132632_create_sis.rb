@@ -10,4 +10,6 @@ class CreateSis < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+
+  change_column_null :inProcessAccumulated, :monitoredAccumulated, true
 end

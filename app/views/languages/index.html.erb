@@ -1,7 +1,7 @@
 
 <!-- Language menu -->
-<div class="row align-items-center pl-3 my-3">
-    <div class="dropdown mr-3">
+<div class="row align-items-center my-3">
+    <div class="dropdown col-4 col-sm-2">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= @language.name %>
         </button>
@@ -14,14 +14,14 @@
         </div>
     </div>
 
-    <span>
+    <div class="col-8 col-sm-10 text-muted px-0">
         <% @languages.each_with_index do |lang, i| %>
             <%= lang.name %>
             <% if @languages.size - 1 != i %>
                 /
             <% end %>
         <% end %>
-    </span>
+    </div>
 </div>
 
 <hr>
@@ -33,22 +33,24 @@
 
 <!-- Location and date -->
 <div class="row justify-content-center align-items-center">
-    <strong class="mr-2"><%= @language.location %></strong>
-    <div class="dropdown mr-4">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLocation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= @language_si.nil? ? @si.name : @language_si.name %>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="selectLocation">
-            <% @sis.each do |si| %>
-                <% if @si.id != si.id  %>
-                    <% language_si = LanguageSi.find_by(language_id: @language.id, si_id: si.id) || si %>
-                    <%= link_to "#{language_si.name}", "/#{@language.id}/#{si.id}", class: "dropdown-item" %>
+    <div class="col-12 d-flex align-items-center mb-2">
+        <strong class="mr-2"><%= @language.location %></strong>
+        <div class="dropdown mr-4 d-inline-block">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="selectLocation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= @language_si.nil? ? @si.name : @language_si.name %>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="selectLocation">
+                <% @sis.each do |si| %>
+                    <% if @si.id != si.id  %>
+                        <% language_si = LanguageSi.find_by(language_id: @language.id, si_id: si.id) || si %>
+                        <%= link_to "#{language_si.name}", "/#{@language.id}/#{si.id}", class: "dropdown-item" %>
+                    <% end %>
                 <% end %>
-            <% end %>
+            </div>
         </div>
     </div>
 
-    <div>
+    <div class="col-12">
         <strong class="mr-2"><%= @language.date %></strong>
         <span><%= Time.now.strftime("%Y-%m-%d") %></span>
     </div>

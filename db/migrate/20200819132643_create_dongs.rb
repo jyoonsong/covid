@@ -13,4 +13,6 @@ class CreateDongs < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+
+  change_column_null :thisWeek, true
 end

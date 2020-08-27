@@ -24,3 +24,6 @@
  .table td {
      white-space: nowrap
  }
+ .text-muted {
+    font-size: .8rem;
+ }

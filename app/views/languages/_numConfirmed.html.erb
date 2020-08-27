@@ -2,22 +2,14 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr class="text-center">
-                <th colspan="2"><%= @language.inProcess || "Not updated yet" %></th>
-                <th colspan="2"><%= @language.monitored  || "Not updated yet"%></th>
+                <th><%= @language.inProcess || "Not updated yet" %></th>
+                <th><%= @language.monitored  || "Not updated yet"%></th>
             </tr>
         </thead>
         <tbody>
-            <tr class="table-secondary text-center">
-                <td><%= @language.thisWeek || "Not updated yet" %></td>
-                <td><%= @language.accumulated || "Not updated yet" %></td>
-                <td><%= @language.thisWeek || "Not updated yet" %></td>
-                <td><%= @language.accumulated || "Not updated yet" %></td>
-            </tr>
             <tr class="text-right">
                 <td><%= @si.inProcessThisWeek || "Not updated yet" %></td>
-                <td><%= @si.inProcessAccumulated || "Not updated yet" %></td>
                 <td><%= @si.monitoredThisWeek || "Not updated yet" %></td>
-                <td><%= @si.monitoredAccumulated || "Not updated yet" %></td>
             </tr>
         </tbody>
     </table>
@@ -29,7 +21,6 @@
             <tr class="text-center">
                 <th><%= @language.numConfirmedByLocation || "Not updated yet" %></th>
                 <th><%= @language.today || "Not updated yet" %></th>
-                <th><%= @language.thisWeek || "Not updated yet" %></th>
                 <th><%= @language.lastWeek || "Not updated yet" %></th>
                 <th><%= @language.accumulated || "Not updated yet" %></th>
             </tr>
@@ -40,7 +31,6 @@
                 <tr class="table-secondary" data-toggle="collapse" data-target=".collapse<%= gu.id %>" aria-expanded="false" aria-controls="collapse<%= gu.id %>" role="button">
                     <th><%= language_gu.nil? ? "Not updated yet" : language_gu.name %></th>
                     <td class="text-right"><%= gu.today || "Not updated yet" %></td>
-                    <td class="text-right"><%= gu.thisWeek || "Not updated yet" %></td>
                     <td class="text-right"><%= gu.lastWeek || "Not updated yet" %></td>
                     <td class="text-right"><%= gu.accumulated || "Not updated yet" %></td>
                 </tr>
@@ -50,7 +40,6 @@
                     <tr class="collapse collapse<%= gu.id %>" id="collapse<%= gu.id %>-<%= dong.id %>">
                         <th><%= language_dong.nil? ? "Not updated yet" : language_dong.name %></th>
                         <td class="text-right"><%= dong.today || "Not updated yet" %></td>
-                        <td class="text-right"><%= dong.thisWeek || "Not updated yet" %></td>
                         <td class="text-right"><%= dong.lastWeek || "Not updated yet" %></td>
                         <td class="text-right"><%= dong.accumulated || "Not updated yet" %></td>
                     </tr>
@@ -61,7 +50,6 @@
             <tr class="table-primary">
                 <th><%= @language.accumulated || "Not updated yet" %></th>
                 <td class="text-right"><%= @si.gus.sum(:today) || "Not updated yet" %></td>
-                <td class="text-right"><%= @si.gus.sum(:thisWeek) || "Not updated yet" %></td>
                 <td class="text-right"><%= @si.gus.sum(:lastWeek) || "Not updated yet" %></td>
                 <td class="text-right"><%= @si.gus.sum(:accumulated) || "Not updated yet" %></td>
             </tr>
