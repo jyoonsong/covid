@@ -18,6 +18,9 @@
  .nav {
     flex-wrap: nowrap;
  }
+ .nav-pills {
+    overflow: scroll;
+ }
  .table thead th {
      vertical-align: middle;
  }
