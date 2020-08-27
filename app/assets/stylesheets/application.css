@@ -33,3 +33,11 @@
  .dropdown .btn {
     width: 100%;
  }
+ .text-red {
+    font-size: 1.08em;
+    color: red;
+ }
+ .text-blue {
+    font-size: 1.08em;
+    color: blue;
+ }

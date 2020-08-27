@@ -8,8 +8,8 @@
         </thead>
         <tbody>
             <tr class="text-right">
-                <td><%= @si.inProcessThisWeek || "Not updated yet" %></td>
-                <td><%= @si.monitoredThisWeek || "Not updated yet" %></td>
+                <td class="text-blue"><b><%= @si.inProcessThisWeek || "Not updated yet" %></b></td>
+                <td class="text-blue"><b><%= @si.monitoredThisWeek || "Not updated yet" %></b></td>
             </tr>
         </tbody>
     </table>
@@ -26,12 +26,20 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Total -->
+            <tr class="table-primary">
+                <th>Total</th>
+                <td class="text-right text-red"><b><%= @si.gus.sum(:today) || "Not updated yet" %></b></td>
+                <td class="text-right text-red"><b><%= @si.gus.sum(:lastWeek) || "Not updated yet" %></b></td>
+                <td class="text-right"><%= @si.gus.sum(:accumulated) || "Not updated yet" %></td>
+            </tr>
+            <!-- By location -->
             <% @si.gus.each do |gu| %>
                 <% language_gu = LanguageGu.find_by(language_id: @language.id, gu_id: gu.id) %>
                 <tr class="table-secondary" data-toggle="collapse" data-target=".collapse<%= gu.id %>" aria-expanded="false" aria-controls="collapse<%= gu.id %>" role="button">
                     <th><%= language_gu.nil? ? "Not updated yet" : language_gu.name %></th>
-                    <td class="text-right"><%= gu.today || "Not updated yet" %></td>
-                    <td class="text-right"><%= gu.lastWeek || "Not updated yet" %></td>
+                    <td class="text-right text-red"><b><%= gu.today || "Not updated yet" %></b></td>
+                    <td class="text-right text-red"><b><%= gu.lastWeek || "Not updated yet" %></b></td>
                     <td class="text-right"><%= gu.accumulated || "Not updated yet" %></td>
                 </tr>
 
@@ -39,20 +47,12 @@
                     <% language_dong = LanguageDong.find_by(language_id: @language.id, dong_id: dong.id) %>
                     <tr class="collapse collapse<%= gu.id %>" id="collapse<%= gu.id %>-<%= dong.id %>">
                         <th><%= language_dong.nil? ? "Not updated yet" : language_dong.name %></th>
-                        <td class="text-right"><%= dong.today || "Not updated yet" %></td>
-                        <td class="text-right"><%= dong.lastWeek || "Not updated yet" %></td>
+                        <td class="text-right text-red"><b><%= dong.today || "Not updated yet" %></b></td>
+                        <td class="text-right text-red"><b><%= dong.lastWeek || "Not updated yet" %></b></td>
                         <td class="text-right"><%= dong.accumulated || "Not updated yet" %></td>
                     </tr>
                 <% end %>
             <% end %>
-            
-            <!-- Total -->
-            <tr class="table-primary">
-                <th>Total</th>
-                <td class="text-right"><%= @si.gus.sum(:today) || "Not updated yet" %></td>
-                <td class="text-right"><%= @si.gus.sum(:lastWeek) || "Not updated yet" %></td>
-                <td class="text-right"><%= @si.gus.sum(:accumulated) || "Not updated yet" %></td>
-            </tr>
         </tbody>
     </table>
 </div>
