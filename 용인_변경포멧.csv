@@ -1,4 +1,0 @@
-s_id,index,name,gudong,gender/age,dateConfirmed,infectionRoute,movementRoute,routeIdentified
-1,321,김길동,기흥구 보정동,남성(10대),2020-08-26,용인-131번 접촉,,
-1,320,김용인-279,기흥구 중동,여성(10대미만),2020-08-26,용인-266번 접촉,,
-1,319,이용인외-30,수지구 풍덕천동,남성(60대),2020-08-26,역학조사중,,
