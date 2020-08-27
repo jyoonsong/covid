@@ -39,7 +39,6 @@ class DongDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   si
   gu
-  confirmeds
   language_dongs
   id
   name
