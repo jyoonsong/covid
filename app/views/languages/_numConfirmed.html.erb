@@ -48,7 +48,7 @@
             
             <!-- Total -->
             <tr class="table-primary">
-                <th><%= @language.accumulated || "Not updated yet" %></th>
+                <th>Total</th>
                 <td class="text-right"><%= @si.gus.sum(:today) || "Not updated yet" %></td>
                 <td class="text-right"><%= @si.gus.sum(:lastWeek) || "Not updated yet" %></td>
                 <td class="text-right"><%= @si.gus.sum(:accumulated) || "Not updated yet" %></td>
